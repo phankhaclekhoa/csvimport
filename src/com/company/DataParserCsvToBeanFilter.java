@@ -14,13 +14,12 @@ import java.util.Optional;
 
 import com.google.common.base.CharMatcher;
 import com.opencsv.bean.CsvToBeanFilter;
-import org.apache.commons.lang.StringUtils;
 
 public class DataParserCsvToBeanFilter implements CsvToBeanFilter {
 
     @Override
     public boolean allowLine(String[] strings) {
-        Optional<Boolean> reduceResult = Arrays.stream(strings).map(s -> !StringUtils.isEmpty(s) && !CharMatcher.WHITESPACE.matchesAllOf(s)).reduce((left, right) -> left || right);
+        Optional<Boolean> reduceResult = Arrays.stream(strings).map(s -> !org.apache.commons.lang3.StringUtils.isEmpty(s) && !CharMatcher.WHITESPACE.matchesAllOf(s)).reduce((left, right) -> left || right);
         return reduceResult.orElse(false);
     }
 }

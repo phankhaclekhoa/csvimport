@@ -2,6 +2,8 @@ package com.company;
 
 import java.io.IOException;
 
+import javax.annotation.processing.AbstractProcessor;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -1,13 +1,13 @@
 package com.company;
-//
-//import com.metabiota.infra.upload.processing.cli.ProcessCli;
-//import com.metabiota.infra.upload.processing.cli.ProcessCommand;
-import com.metabiota.infra.upload.processing.util.FileDataHelper;
+
 import lombok.Setter;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.config.AbstractConfiguration;
+
+import com.company.FileDataHelper;
 
 public class FileUploadProcessingMain {
     private static Logger LOG;

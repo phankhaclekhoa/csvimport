@@ -24,7 +24,10 @@ import com.opencsv.CSVReader;
 import com.opencsv.bean.CsvToBeanFilter;
 import com.opencsv.bean.IterableCSVToBean;
 import com.opencsv.bean.MappingStrategy;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+
 import lombok.Setter;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,7 +35,7 @@ import org.apache.logging.log4j.Logger;
 public class DataParserIterableCsvToBean extends IterableCSVToBean {
     private static final Logger LOG = LogManager.getLogger(DataParserIterableCsvToBean.class);
     @Setter
-    private Map<Integer, ParseErrors> parseErrors = new HashMap<>();
+    private Map<Integer, ParseErrors> parseErrors = new HashMap();
 
     private AtomicInteger lineNumber = new AtomicInteger(0);
 
@@ -86,7 +89,7 @@ public class DataParserIterableCsvToBean extends IterableCSVToBean {
             parseErrors.remove(rowNumber);
             return parseErrorPropNames;
         }
-        return new HashSet<>();
+        return new HashSet();
     }
 
     @Override
@@ -105,7 +108,7 @@ public class DataParserIterableCsvToBean extends IterableCSVToBean {
     }
 
     @Override
-    public Object nextLine() throws IllegalAccessException, InstantiationException, IOException, IntrospectionException, InvocationTargetException {
+    public Object nextLine() throws IllegalAccessException, InstantiationException, IOException, IntrospectionException, InvocationTargetException, CsvRequiredFieldEmptyException {
         lineNumber.incrementAndGet();
         return super.nextLine();
     }

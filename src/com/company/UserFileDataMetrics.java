@@ -4,8 +4,12 @@ package com.company;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.lang3.text.WordUtils;
+
+import com.company.MetricsContext;
+import com.company.UserFileDataReport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,8 +71,6 @@ public class UserFileDataMetrics extends MetricsContext {
         report.setTotalRows(totalRecords);
         report.setImportedRows(totalRecords - duplicateRecords - failedValidationRecords);
         report.setProcessingErrors(failedValidationRecords + duplicateRecords);
-        report.setGeocodedErrors(failedProcessingRecords);
-        report.setGeocodedRows(successfulProcessedRecords);
         List<MetricsRecord> errors = getRecords().get(MetricsContext.MetricsRecordType.VALIDATION_FAILURE);
         int limit = Math.min(errors.size(), MAX_ERROR_REPORT_MESSAGES);
         Map<Integer, List<String>> errorMsgMaps = new HashedMap();

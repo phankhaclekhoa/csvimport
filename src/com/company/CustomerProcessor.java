@@ -1,23 +1,13 @@
 package com.company;
 
+import com.company.FileProcessorUtil.CsvFields;
+import com.company.UserFileDataMetrics;
 import com.google.common.collect.Lists;
-import com.metabiota.hbase.record.FilesRecord;
-import com.metabiota.hbase.record.GenericDataRowsRecord;
-import com.metabiota.infra.upload.processing.processor.aggregation.GenericDataAggregation;
-import com.metabiota.infra.upload.processing.processor.derivation.GeoLocationDerivation;
-import com.metabiota.infra.upload.processing.processor.metrics.UserFileDataMetrics;
-import com.metabiota.infra.upload.processing.processor.validation.GenericDataRowsValidation;
-import com.metabiota.infra.upload.processing.processor.validation.GenericRequiredFieldsValidation;
-import com.metabiota.infra.upload.processing.util.FileProcessorUtil.CsvFields;
-import com.metabiota.infra.upload.processing.util.FileProcessorUtil.DtoFields;
-import com.metabiota.infra.upload.processing.util.GenericDataHelper;
-import com.metabiota.infra.upload.processing.util.UploadProcessingConfig;
-import com.metabiota.pojo.platform.files.ProcessingOptions;
 import com.opencsv.bean.MappingStrategy;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.solr.client.solrj.SolrServerException;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
